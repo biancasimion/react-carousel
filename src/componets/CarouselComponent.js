@@ -29,7 +29,7 @@ class Carousel extends Component {
         })
       })
       .catch((e) => {
-        console.log('Error', e);
+        console.log(e);
       });
   }
 
@@ -55,13 +55,13 @@ class Carousel extends Component {
       <div>
         <div className="carousel">
           <button 
-            className="button prev"
+            className="button prev mobile-btn"
             onClick={() => this.getPreviousSlide()}
             >
               Previous
           </button>
           <button 
-            className="button next"
+            className="button next mobile-btn"
             onClick={() => this.getNextSlide()}
           >
             Next
