@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    className="carousel"
+  >
+    <button
+      className="button prev"
+      onClick={[Function]}
+    >
+      Previous
+    </button>
+    <button
+      className="button next"
+      onClick={[Function]}
+    >
+      Next
+    </button>
+    <div
+      className="slides active-slide-index-undefined"
+    >
+      <div
+        className="slides__container"
+        style={
+          Object {
+            "transform": "translateX(-NaN%)",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

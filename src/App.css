@@ -25,13 +25,14 @@ body {
 .slides__container {
   display: flex;
   position: absolute;
+  background-color: #eeeeee;
 }
 
 .slide {
   flex: 1;
   min-width: 280px;
   height: 300px;
-  margin: 0 8px;
+  margin: 12px 8px 0 8px;
 }
 
 .slides {

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="slide"
+>
+  <img
+    alt=""
+    src="test.com"
+  />
+  <h4>
+    test test
+  </h4>
+</div>
+`;
