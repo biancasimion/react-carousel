@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Slides from './SlidesComponent';
+import Slide from './SlideComponent';
 import fetchData from '../helpers/fetchImagesHelper';
 
 class Carousel extends Component {
@@ -8,16 +8,24 @@ class Carousel extends Component {
 
     this.state = {
       images: [],
-      imageIndex: 0,
+      image: {},
     }
   }
   
   componentDidMount () {
     fetchData.loadImages()
       .then((response) => {
-        const images = response.hits.map((item) => item.largeImageURL );
+        const images = response.hits.map((item, index) => {
+          return {
+            url: item.largeImageURL,
+            index: index,
+            tags: item.tags,
+          }
+        });
+
         this.setState({
-          images
+          images,
+          image: images[0],
         })
       })
       .catch((e) => {
@@ -25,10 +33,52 @@ class Carousel extends Component {
       });
   }
 
+  getNextSlide() {
+    const { image, images } = this.state;
+    const newIndex = (image.index + 1);
+    this.setState({
+      image: images[newIndex],
+    })
+  }
+   
+  getPreviousSlide() {
+    const { image, images } = this.state;
+    const newIndex = image.index - 1;
+    this.setState({
+      image: images[newIndex],
+    })
+  }
+
   render () {
+    const { image, images } = this.state;
     return (
-      <div className="carousel">
-        <Slides images={this.state.images}/>
+      <div>
+        <div className="carousel">
+          <button 
+            className="button prev"
+            onClick={() => this.getPreviousSlide()}
+            >
+              Previous
+          </button>
+          <button 
+            className="button next"
+            onClick={() => this.getNextSlide()}
+          >
+            Next
+          </button>
+          <div className={`slides active-slide-index-${image.index}`}>
+            <div 
+              className="slides__container" style={{
+                transform: `translateX(-${image.index*(100/images.length)}%)`
+              }}
+            >
+              {
+                images.map((image) => <Slide key={image.index} image={image} />)
+              }
+            </div>
+          </div>
+        </div>
+         
       </div>
     );
   }
