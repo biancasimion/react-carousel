@@ -1,8 +1,8 @@
 ## React Carousel
-Carousel with multimple images built with react.
-I used react create app.
-I used https://pixabay.com for the images. 
-CSS: flex, translate and transitions. 
+* Carousel with multimple images built with react.
+* I used react create app.
+* I used https://pixabay.com for the images. 
+* CSS: flex, translate and transitions. 
 
 ### `npm start`
 
